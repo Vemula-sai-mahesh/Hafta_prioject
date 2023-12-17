@@ -9,7 +9,7 @@ FROM python:3.10.12-alpine3.18 as python-hafta-1
 WORKDIR /app
 COPY . /app
 
-RUN apk --no-cache add libcurl
+# RUN apk --no-cache add libcurl
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip3 install -r requirements.txt
