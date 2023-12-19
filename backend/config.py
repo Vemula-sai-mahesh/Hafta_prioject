@@ -1,7 +1,8 @@
 
 class Config(object):
     SECRET_KEY = 'you-will-never-guess'
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Hello!divine@127.0.0.1:3306/hafta'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@db:3306/hafta'
+    print("connected")
     # the biggest problem is that the database is created but we are not able to listen to the port
     # The next problem is that it seems the username and password are not being passed correctly
     SQLALCHEMY_TRACK_MODIFICATIONS = False

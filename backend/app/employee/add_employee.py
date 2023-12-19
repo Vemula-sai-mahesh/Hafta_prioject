@@ -101,7 +101,7 @@ def update_employee():
                     deff_date = deff_obj.date()
                     new_data.dateeff = deff_date
                 if temp == 'dateofapp' :
-                    if val is not '' and val is not None:
+                    if val !='' and val is not None:
 
                         dapp = payload['dateofapp'].replace('"' , '') 
                         dapp_obj = datetime.strptime(dapp , '%Y-%m-%dT%H:%M:%S.%fZ') + hours_added
@@ -463,7 +463,7 @@ def add_emp():
                     deff_date = deff_obj.date()
                     new_data.dateeff = deff_date
                 if temp == 'dateofapp' :
-                    if val is not '' and val is not None:
+                    if val !='' and val is not None:
                         dapp = payload['dateofapp'].replace('"' , '') 
                         dapp_obj = datetime.strptime(dapp , '%Y-%m-%dT%H:%M:%S.%fZ') + hours_added
                         dapp_date = dapp_obj.date()
