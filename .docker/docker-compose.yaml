@@ -37,6 +37,13 @@ services:
     depends_on:
       db:
         condition: service_healthy
+  frontend: 
+    build:
+      context: front
+    ports:
+      - 8000:8000
+    networks:
+      - frontnet
 
 volumes:
   db-data:
@@ -47,4 +54,5 @@ secrets:
 
 networks:
   backnet:
+  frontnet:
   
