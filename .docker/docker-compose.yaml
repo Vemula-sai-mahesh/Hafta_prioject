@@ -24,26 +24,29 @@ services:
   backend:
     build:
       context: backend
-     
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+    
     secrets:
       - db-password
     ports:
       - 8000:8000
+    
     networks:
       - backnet
-
+      - frontnet
+     
     depends_on:
       db:
         condition: service_healthy
+
   frontend: 
     build:
       context: front
     ports:
-      - 8000:8000
+      - 3000:3000
     networks:
       - frontnet
+    depends_on:
+      - backend
 
 volumes:
   db-data:

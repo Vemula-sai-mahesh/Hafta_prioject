@@ -30,9 +30,12 @@ services:
     
     secrets:
       - db-password
+    ports:
+      - 8000:8000
     
     networks:
       - backnet
+      - frontnet
      
     depends_on:
       db:
@@ -42,9 +45,11 @@ services:
     build:
       context: front
     ports:
-      - 8000:8000
+      - 3000:3000
     networks:
       - frontnet
+    depends_on:
+      - backend
 
 volumes:
   db-data:
