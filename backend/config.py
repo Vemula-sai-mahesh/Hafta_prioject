@@ -40,7 +40,7 @@ class Config(object):
     # Perform database operations using the engine
     with engine.connect() as connection:
         # Example: Inserting a new user
-        connection.execute(users_table.insert().values(name='Jane Doe', age=30))
+        connection.execute(users_table.insert().values(name='', age=30))
 
         # Example: Querying users
         result = connection.execute(users_table.select())

@@ -20,7 +20,7 @@ def login():
     if auth:
         user = str(auth['username']).lower().strip()
         if user == 'admin':
-            if(auth['password'] == '101'):
+            if(auth['password'] == 'admin'):
                 access_token = create_access_token(identity=auth['username'])
                 refresh_token = create_refresh_token(identity=auth['username'])
                 return jsonify({'token': access_token, 'refresh_token': refresh_token})
