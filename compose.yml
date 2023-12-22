@@ -11,8 +11,7 @@ services:
       interval: 3s
       retries: 5
       start_period: 30s
-    secrets:
-      - db-password
+   
     volumes:
       - db-data:/var/lib/mysql
     networks:
@@ -28,8 +27,7 @@ services:
     build:
       context: backend
     
-    secrets:
-      - db-password
+   
     ports:
       - 8000:8000
     
@@ -45,19 +43,17 @@ services:
     build:
       context: front
     ports:
-      - 3000:3000
-    networks:
-      - frontnet
+      - 80:80
+   
     depends_on:
       - backend
+      
+    networks:
+      - frontnet
 
 volumes:
   db-data:
-
-secrets:
-  db-password:
-    file: db/password.txt
-
+  
 networks:
   backnet:
   frontnet:
