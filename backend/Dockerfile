@@ -17,9 +17,9 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 COPY . .
 
-ENV FLASK_ENV development
-ENV FLASK_RUN_PORT 8000
-ENV FLASK_RUN_HOST 0.0.0.0
+# ENV FLASK_ENV=development
+# ENV FLASK_RUN_PORT=8000
+# ENV FLASK_RUN_HOST=0.0.0.0
 
 
 EXPOSE 8000
