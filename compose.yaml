@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:latest
+
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 --silent"]
+      interval: 3s
+      retries: 5
+      start_period: 30s
+    environment:
+      - MYSQL_ROOT_PASSWORD=root1
+      - MYSQL_DATABASE=hafta
+      - MYSQL_USER=divine
+      - MYSQL_PASSWORD=admin
+    volumes:
+      - db-data:/var/lib/mysql
+
+    expose:
+      - 3306
+      - 33060
+
+  backfront:
+    build:
+      context: .
+    ports:
+      - "5234:5234"
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  db-data:
