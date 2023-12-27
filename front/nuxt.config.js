@@ -1,14 +1,14 @@
 const config = {
   static_path:
     process.env.NODE_ENV !== "production"
-      ? "http://127.0.0.1:3000"
+      ? "http://127.0.0.1:8000"
       : "http://api.jaitexart.org/static",
   static_base:
     process.env.NODE_ENV !== "production"
-      ? "http://127.0.0.1:3000/static/uploads"
+      ? "http://127.0.0.1:8000/static/uploads"
       : "https://saas-space.ams3.cdn.digitaloceanspaces.com/",
   apiserver: process.env.NODE_ENV !== "production" ? "127.0.0.1" : "127.0.0.1",
-  apiserver_port: process.env.NODE_ENV !== "production" ? "3000" : "80",
+  apiserver_port: process.env.NODE_ENV !== "production" ? "8000" : "80",
 };
 
 export default {

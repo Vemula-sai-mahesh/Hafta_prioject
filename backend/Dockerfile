@@ -6,8 +6,8 @@
 FROM --platform=$BUILDPLATFORM python:3.10.12-alpine3.18 as python-hafta-1
 # RUN apt-get update && apt-get install -y libcurl4-openssl-dev
 
-WORKDIR /app
-COPY requirements.txt /app
+WORKDIR /backend
+COPY requirements.txt /backend
 
 # RUN apk --no-cache add libcurl
 

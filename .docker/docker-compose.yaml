@@ -16,6 +16,7 @@ services:
     environment:
       - MYSQL_DATABASE=hafta
       - MYSQL_ROOT_PASSWORD=root
+      
     expose:
       - 3306
       - 33060
@@ -31,14 +32,15 @@ services:
       context: backend
     ports:
       - 8000:8000
-     
+    depends_on:
+      - db
   
 
   frontend: 
     build:
       context: front
     ports: 
-      - 80:3000
+      - 3000:3000
     
     depends_on:
       - backend
@@ -48,7 +50,7 @@ services:
 volumes:
   db-data:
 
-networks:
-  backnet:
-  frontnet:
+# networks:
+#   backnet:
+#   frontnet:
   
